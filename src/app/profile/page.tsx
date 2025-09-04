@@ -62,6 +62,12 @@ export default function ProfilePage() {
         return () => abort.abort();
     }, [router]);
 
+    function logout()
+    {
+        localStorage.removeItem("token");
+        router.push("/");
+    }
+
     return (
         <main>
             <h1>Profile</h1>
@@ -85,6 +91,10 @@ export default function ProfilePage() {
                     </div>
                 </div>
             )}
+
+            <div>
+                <button onClick={logout}>Logout</button>
+            </div>
         </main>
     );
 }
